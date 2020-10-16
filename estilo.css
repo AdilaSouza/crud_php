@@ -1,0 +1,43 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: arial;
+}
+input{
+  display: block;
+  line-height: 30px;
+  height: 30px;
+  outline: none;
+  font-size: 15pt;
+  width: 80%;
+}
+form{
+    width: 330px;
+    background-color: rgba(0,0,0,.2);
+    padding: 20px;
+    margin: 30px 30px
+}
+input[type="submit"]{
+    margin-top: 10px;
+}
+#Formulario{
+    width: 35%;
+    background-color: burlywood;
+    height: 500px;
+    float: left;
+
+}
+
+#Lista{
+    width: 65%;
+    background-color: cadetblue;
+    height: 500px;
+    float: left;
+
+}
+a{
+    background-color: cornsilk;
+    color: black;
+    padding: 5px;
+    margin: 0px 5px;
+}
