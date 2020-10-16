@@ -1,11 +1,12 @@
 <?php
-  if(empty($_SESSION)){
-      session_start();  
-      if(!empty($_SESSION["mensagem"])){
-          echo $_SESSION["mensagem"];
-          $_SESSION["mensagem"] = null;
-      }
-    }?>
+
+if(empty($_SESSION)){
+  session_start();  
+  if(!empty($_SESSION["mensagem"])){
+    echo $_SESSION["mensagem"];
+    $_SESSION["mensagem"] = null;
+  }
+}?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -36,31 +37,31 @@
 
       <ul class="list-group">
       <li class="list-group-item disabled"> SUAS ATIVIDADES</li>
-      <?php
+<?php
 $dsn = 'mysql:host=localhost;dbname=crudpdo';
 $username = 'root';
 $password = '';
 $options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+  PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ); 
 
 $dbh = new PDO($dsn, $username, $password, $options);
 
 $sth = $dbh->prepare("SELECT * FROM pessoa");
 $sth->execute();
-  $pessoas = $sth->fetchAll();
-  foreach($pessoas as $pessoa){
-      echo'<li class="list-group-item">'.$pessoa["atividades"] .'<span class= <td> <a href="javascript:deletar('.$pessoa["id"].')"> Editar </a><a href=""> Excluir</a></td> </span> </li>';
-  }
+$pessoas = $sth->fetchAll();
+foreach($pessoas as $pessoa){
+  echo'<li class="list-group-item">'.$pessoa["atividades"] .'<span class= <td> <a href="javascript:deletar('.$pessoa["id"].')"> Editar </a><a href=""> Excluir</a></td> </span> </li>';
+}
 ?>
-  
-  
+
+
 
 </ul>
       </tr>
     </table>
 
     </section>
-        
+
     </body>
     </html>
