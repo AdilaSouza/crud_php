@@ -20,7 +20,7 @@ class Atividades{
     }
 
     public function buscarDados(){
-       $cmd = $this->pdo->prepare("SELECT * FROM pessoa ORDER BY id "); 
+       $cmd = $this->pdo->prepare("SELECT * FROM tarefa ORDER BY id "); 
     }
 
     

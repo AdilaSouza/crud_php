@@ -1,24 +1,18 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=test';
-$username = 'root';
-$password = '';
-$options = array(
-    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-); 
+if (empty($_SESSION)) {
+  session_start();
+  if (!empty($_SESSION["mensagem"])) {
+    echo $_SESSION["mensagem"];
+    $_SESSION["mensagem"] = null;
+  }
+} ?>
 
-$dbh = new PDO($dsn, $username, $password, $options);
-$sth = $dbh->prepare("SELECT * FROM user");
-
-$sth->execute();
-
-/* Fetch all of the remaining rows in the result set */
-//print("Fetch all of the remaining rows in the result set:\n");
-echo "emails:";
-$result = $sth->fetchAll();
-foreach($result as $row){
-    echo "<li>";
-    echo $row['email'];
-    echo'</li>';
-}
-//print_r($result);
-?>
+<form action="./funcoes/fazerLogin.php" method="POST">
+  <p>emaill
+    <input name="email" type="text">
+  </p>
+  <p>senha
+    <input name="senha" type="password">
+  </p>
+  <button type="submit">Enviar</button>
+</form>
